@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.hover-toggle{
+  cursor: pointer;
+}
