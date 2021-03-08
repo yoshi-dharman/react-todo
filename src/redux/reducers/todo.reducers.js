@@ -8,13 +8,22 @@ const initialState = [{
 const todoo = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
-            return [
-                ...state,
-                {
-                    id: state[state.length-1].id + 1,
+            let id;
+            if(state.todoList.length < 1){
+                id = 1;
+            }
+            else{
+                id = state.todoList[state.todoList.length-1].id;
+            }
+            return {
+                todoList : [
+                    ...state.todoList,
+                    {
+                    id: id + 1,
                     todo: action.newTodo
-                }
-            ];
+                }]
+
+            };
         case EDIT_TODO:
 
             let editState = state.map(item => {
